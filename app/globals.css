@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap");
+
+:root {
+  --navy: #1b3a6b;
+  --navy-700: #163057;
+  --navy-900: #091830;
+  --amber: #e8a020;
+  --paper: #f8f6f2;
+  --ink: #1a1a1a;
+  --ink-muted: #6b7280;
+  --border: #e5e0d8;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+/* Selection */
+::selection {
+  background: rgba(232, 160, 32, 0.35);
+  color: #091830;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #efeadf;
+}
+::-webkit-scrollbar-thumb {
+  background: #1b3a6b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0f2543;
+}
+
+/* Section heading underline — signature element */
+.signature-rule {
+  position: relative;
+  display: inline-block;
+}
+.signature-rule::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 4px;
+  background-image: linear-gradient(90deg, var(--amber) 0 25%, transparent 25% 35%, var(--amber) 35% 50%, transparent 50% 60%, var(--amber) 60% 75%, transparent 75% 100%);
+  background-size: 16px 4px;
+  background-repeat: repeat-x;
+  border-radius: 1px;
+}
+
+/* Blueprint dimension tick */
+.dim-tick {
+  width: 12px;
+  height: 1px;
+  background: currentColor;
+  display: inline-block;
+}
+
+/* Card hover lift */
+.card-lift {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px -16px rgba(27, 58, 107, 0.20);
+}
+
+/* Blueprint grid background */
+.bg-blueprint {
+  background-color: var(--paper);
+  background-image: linear-gradient(rgba(27, 58, 107, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(27, 58, 107, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: -1px -1px;
+}
+
+.bg-blueprint-dark {
+  background-color: #091830;
+  background-image: linear-gradient(rgba(232, 160, 32, 0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232, 160, 32, 0.10) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Glass card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Ticker */
+.ticker-wrap {
+  display: flex;
+  width: max-content;
+  animation: scroll-x 40s linear infinite;
+}
+
+/* Lightbox */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(9, 24, 48, 0.94);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* Drag handle */
+.drag-handle {
+  cursor: grab;
+}
+.drag-handle:active {
+  cursor: grabbing;
+}
+
+.dragging {
+  opacity: 0.5;
+  transform: scale(0.98);
+}
+
+.drag-over {
+  border: 2px dashed #e8a020 !important;
+  background: rgba(232, 160, 32, 0.06) !important;
+}

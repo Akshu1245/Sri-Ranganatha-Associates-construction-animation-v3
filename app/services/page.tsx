@@ -3,13 +3,13 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
-  Compass, Stamp, Box, Layers, Calculator, FileText, Briefcase, Map, Utensils, ArrowRight, Check,
+  Compass, Stamp, Box, Layers, Calculator, FileText, Briefcase, Map, Utensils, Home, Wrench, ArrowRight, Check,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { SERVICES, BRAND } from "@/lib/constants";
 
 const ICONS: Record<string, LucideIcon> = {
-  Compass, Stamp, Box, Layers, Calculator, FileText, Briefcase, Map, Utensils,
+  Compass, Stamp, Box, Layers, Calculator, FileText, Briefcase, Map, Utensils, Home, Wrench,
 };
 
 export default function ServicesPage() {

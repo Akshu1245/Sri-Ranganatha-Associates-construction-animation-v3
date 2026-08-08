@@ -183,6 +183,36 @@ export const SERVICES = [
     ],
     color: "amber",
   },
+  {
+    id: "interior-layouts",
+    title: "Interior & Space Planning",
+    shortDesc: "Detailed 2D/3D spatial planning & furniture arrangement drawings.",
+    longDesc:
+      "Smart interior layout drawings detailing room flow, furniture placement, lighting points, and electrical conduit schedules for optimal living space.",
+    icon: "Home",
+    bullets: [
+      "Furniture & layout positioning",
+      "Electrical & plumbing points plan",
+      "Room-by-room space optimization",
+      "False ceiling & lighting drawings",
+    ],
+    color: "navy",
+  },
+  {
+    id: "renovation-plans",
+    title: "Renovation & Floor Addition",
+    shortDesc: "Structural assessment & sanction plans for floor expansions.",
+    longDesc:
+      "Planning to add G+1, G+2 or extend your existing building? We provide structural safety certification, load calculations, and sanction drawings.",
+    icon: "Wrench",
+    bullets: [
+      "Floor extension (G+1 to G+4) plans",
+      "Structural stability audit report",
+      "BBMP/BDA extension sanction",
+      "Plinth & column load calculation",
+    ],
+    color: "amber",
+  },
 ];
 
 export const PROCESS_STEPS = [

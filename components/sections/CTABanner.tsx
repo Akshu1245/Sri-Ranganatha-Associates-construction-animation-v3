@@ -31,7 +31,7 @@ export default function CTABanner() {
               Ready to start your project?
             </h2>
             <p className="mt-4 text-paper-200 text-lg max-w-2xl mx-auto">
-              Free site consultation in Bengaluru. No obligation, no spam. Call, WhatsApp, or fill
+              Site consultation in Bengaluru. No obligation, no spam. Call, WhatsApp, or fill
               the form — your call.
             </p>
 

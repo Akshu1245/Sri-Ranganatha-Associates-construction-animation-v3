@@ -8,6 +8,7 @@ const leadSchema = z.object({
   email: z.string().email().optional().or(z.literal("")),
   authority: z.string().min(1),
   services: z.array(z.string()).min(1),
+  otherService: z.string().optional(),
   plotSize: z.string().optional(),
   timeline: z.string().min(1),
   source: z.string().optional(),
@@ -76,6 +77,9 @@ export async function POST(req: NextRequest) {
     ["Email", data.email || "-"],
     ["Authority", data.authority],
     ["Services", data.services.join(", ")],
+    ...(data.services.includes("other") && data.otherService
+      ? ([["Other service (specified)", data.otherService]] as [string, string][])
+      : []),
     ["Plot size", data.plotSize || "-"],
     ["Timeline", data.timeline],
     ["Source", data.source || "-"],

@@ -25,7 +25,7 @@ export const BRAND = {
   stats: {
     plansSanctioned: 500,
     yearsExperience: 20,
-    happyClients: 750,
+    happyClients: 1000,
     servicesOffered: 12,
   },
 };
@@ -41,7 +41,7 @@ export const SERVICES = [
     bullets: [
       "Residential floor plans",
       "Commercial floor plans",
-      "Vasthu / Vastu working plans",
+      "Vastu working plans",
       "Floor plans + elevation + section set",
     ],
     color: "navy",
@@ -99,9 +99,10 @@ export const SERVICES = [
       "Detailed quantity take-off + rate analysis. We prepare the estimate banks accept for home-loan disbursement and contractors accept for tender.",
     icon: "Calculator",
     bullets: [
-      "Bank loan estimations",
+      "Estimation for bank loan purpose",
       "Construction cost estimates",
       "Material quantity take-off",
+      "Quantity survey and analysis",
       "Rate analysis (DSR-based)",
     ],
     color: "navy",
@@ -115,6 +116,7 @@ export const SERVICES = [
     icon: "FileText",
     bullets: [
       "Bank home-loan valuation",
+      "Half-construction valuation",
       "Mortgage valuation",
       "Insurance valuation",
       "Court / legal valuation",
@@ -191,7 +193,7 @@ export const PROCESS_STEPS = [
   },
   {
     n: "02",
-    title: "Free site consultation",
+    title: "Site consultation",
     desc: "We visit your site (in Bengaluru), understand the constraints, and recommend the right plan type.",
   },
   {
@@ -215,7 +217,7 @@ export const TESTIMONIALS = [
   {
     name: "Ramesh K.",
     place: "Bilekahalli, Bengaluru",
-    text: "Got my 30×40 site planned and BBMP sanction in under 6 weeks. Ravi sir personally visited the site twice. The 3D elevation is exactly what was built.",
+    text: "Got my 30×40 site planned and BBMP sanction in under 6 weeks. Mr. M Ravikumar personally visited the site twice. The 3D elevation is exactly what was built.",
     rating: 5,
   },
   {
@@ -336,15 +338,15 @@ export const DEFAULT_PORTFOLIO = [
   },
   {
     id: "p-008",
-    title: "Sanction Plan Set — Working Drawings",
-    category: "Working Plan",
-    type: "Working Drawing",
+    title: "Sanction Plan Set",
+    category: "Sanction Plan",
+    type: "Sanction Drawing",
     location: "Bengaluru",
     year: 2024,
     image: "/portfolio/elevations/elevation-01-plan.jpg",
     tags: ["Sanction Drawing", "Floor Plan", "Schedule"],
     description:
-      "Complete sanction plan set: ground, first, second, terrace floor plans + elevation + section + schedule of joinery.",
+      "Complete sanction plan set: ground, first, second, terrace floor plans, elevation, section and schedule of joinery.",
   },
   {
     id: "p-009",

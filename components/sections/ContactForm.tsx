@@ -20,6 +20,7 @@ const schema = z.object({
   email: z.string().email("Enter a valid email").optional().or(z.literal("")),
   authority: z.string().min(1, "Choose your authority area"),
   services: z.array(z.string()).min(1, "Pick at least one service"),
+  otherService: z.string().optional(),
   plotSize: z.string().optional(),
   timeline: z.string().min(1, "Pick a timeline"),
   source: z.string().optional(),
@@ -175,7 +176,7 @@ export default function ContactForm() {
             >
               <div>
                 <h2 className="font-display text-3xl sm:text-4xl font-bold text-navy-700 mb-2">
-                  Get a free quote.
+                  Get a quote.
                 </h2>
                 <p className="text-ink-700">
                   Fill this in. We&apos;ll respond within 2 working hours with a clear scope and fee.
@@ -276,9 +277,32 @@ export default function ContactForm() {
                       </label>
                     );
                   })}
+                  <label
+                    className={`flex items-center gap-3 px-3 py-2.5 border rounded-lg cursor-pointer transition-colors ${
+                      selectedServices.includes("other")
+                        ? "border-navy-600 bg-navy-50"
+                        : "border-paper-300 hover:border-paper-400"
+                    }`}
+                  >
+                    <input
+                      type="checkbox"
+                      value="other"
+                      {...register("services")}
+                      className="w-4 h-4 text-navy-600 border-paper-300 rounded focus:ring-navy-600"
+                    />
+                    <span className="text-sm text-ink-700">Others</span>
+                  </label>
                 </div>
                 {errors.services && (
                   <p className="text-red-500 text-xs mt-1">{errors.services.message}</p>
+                )}
+                {selectedServices.includes("other") && (
+                  <input
+                    type="text"
+                    {...register("otherService")}
+                    className="mt-2 w-full px-4 py-3 border border-paper-300 rounded-lg focus:border-navy-600 focus:ring-2 focus:ring-navy-600/10 outline-none transition-all"
+                    placeholder="Please specify what you need"
+                  />
                 )}
               </div>
 
@@ -497,7 +521,7 @@ export default function ContactForm() {
 
           <div className="mt-5 aspect-video rounded-xl overflow-hidden border border-paper-300">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.7!2d77.638!3d12.978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sHalasuru%2C%20Bengaluru!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+              src="https://www.google.com/maps?q=Cauvery+Complex%2C+129%2C+Old+Madras+Rd%2C+near+Ulsoor%2C+Halasuru%2C+Lingayana+Palya%2C+Bengaluru%2C+Karnataka+560008&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}

@@ -26,7 +26,7 @@ export default function Footer() {
               href="/contact"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-amber-400 hover:bg-amber-500 text-navy-900 font-semibold rounded-lg transition-colors"
             >
-              Get Free Quote
+              Get Quote
               <ArrowUpRight className="w-4 h-4" />
             </Link>
             <a
@@ -49,11 +49,8 @@ export default function Footer() {
                 SRA
               </div>
               <div className="leading-tight">
-                <div className="font-display text-paper-50 text-base font-semibold">
-                  Sri Ranganatha
-                </div>
-                <div className="text-[10px] text-paper-300 tracking-wider uppercase">
-                  Associates
+                <div className="font-display text-paper-50 text-base font-semibold whitespace-nowrap">
+                  Sri Ranganatha Associates
                 </div>
               </div>
             </Link>

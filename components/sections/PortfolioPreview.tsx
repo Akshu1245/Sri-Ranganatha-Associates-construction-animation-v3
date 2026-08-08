@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, MapPin, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { getPortfolio, type PortfolioItem } from "@/lib/admin-store";
 
 export default function PortfolioPreview() {
@@ -103,8 +103,7 @@ export default function PortfolioPreview() {
                   {item.title}
                 </div>
                 <div className="hidden sm:flex items-center gap-1 text-xs text-paper-200 mt-1">
-                  <MapPin className="w-3 h-3" />
-                  {item.location} · {item.year}
+                  {item.year}
                 </div>
               </div>
               {/* Hover ring */}
@@ -162,7 +161,7 @@ export default function PortfolioPreview() {
                 {PREVIEW_ITEMS[lightboxIdx].title}
               </div>
               <div className="text-paper-200 text-sm mt-1">
-                {PREVIEW_ITEMS[lightboxIdx].location} · {PREVIEW_ITEMS[lightboxIdx].year}
+                {PREVIEW_ITEMS[lightboxIdx].year}
               </div>
             </div>
           </div>

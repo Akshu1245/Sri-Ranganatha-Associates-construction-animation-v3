@@ -23,7 +23,7 @@ const WHY_US = [
   {
     icon: Hammer,
     title: "On-call support",
-    desc: "Your contractor can call us with questions during construction. Free, for the lifetime of the project.",
+    desc: "Your contractor can call us with questions during construction, for the lifetime of the project.",
   },
   {
     icon: Shield,
@@ -54,7 +54,7 @@ export default function ProcessPage() {
             <span className="text-amber-500">20 years of field work.</span>
           </h1>
           <p className="mt-6 text-lg text-ink-700 max-w-2xl">
-            We don&apos;t outsource your plan. Ravi sir reviews every drawing. The same engineer who
+            We don&apos;t outsource your plan. M Ravikumar reviews every drawing. The same engineer who
             visits your site also handles the sanction filing. One point of contact, start to finish.
           </p>
         </div>

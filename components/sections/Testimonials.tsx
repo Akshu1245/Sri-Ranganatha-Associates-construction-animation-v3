@@ -18,7 +18,7 @@ export default function Testimonials() {
             What clients say
           </div>
           <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-navy-700 leading-tight">
-            750+ families built
+            1000+ families built
             <br />
             <span className="text-amber-500">with us.</span>
           </h2>

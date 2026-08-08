@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, CheckCircle2, Phone } from "lucide-react";
+import { ArrowRight, CheckCircle2, Phone } from "lucide-react";
 import { BRAND } from "@/lib/constants";
 
 export default function Hero() {
@@ -90,17 +90,6 @@ export default function Hero() {
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           {/* Left content */}
           <div className="lg:col-span-7">
-            {/* Pill */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-700 text-xs font-semibold mb-6"
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>{BRAND.stats.plansSanctioned}+ Plans Sanctioned in Bengaluru</span>
-            </motion.div>
-
             {/* Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -127,7 +116,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.25 }}
               className="mt-6 text-lg sm:text-xl text-ink-700 max-w-2xl leading-relaxed"
             >
-              <span className="font-semibold text-navy-600">Civil engineers, architects & approved valuers</span> in Halasru since 2006. From site visit to BBMP/BDA sanction — done. No queues. No hidden costs.
+              <span className="font-semibold text-navy-600">Civil engineers, architects & approved valuers</span> in Halasru since 2006. From site visit to BBMP/BDA sanction — done.
             </motion.p>
 
             {/* Trust pills */}
@@ -158,7 +147,7 @@ export default function Hero() {
                 href="/contact"
                 className="group inline-flex items-center justify-center gap-2 px-7 py-4 bg-navy-600 hover:bg-navy-700 text-white font-semibold rounded-lg shadow-blueprint hover:shadow-amber-glow transition-all"
               >
-                Get Free Consultation
+                Get Consultation
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
@@ -197,7 +186,7 @@ export default function Hero() {
                   ★★★★★
                 </div>
                 <div className="text-ink-500">
-                  Rated 4.9/5 by 750+ Bengaluru families
+                  Rated 4.9/5 by 1000+ Bengaluru families
                 </div>
               </div>
             </motion.div>
@@ -232,7 +221,7 @@ export default function Hero() {
                     Modern Residential Elevation
                   </div>
                   <div className="text-paper-200 text-sm mt-1">
-                    G+3 • 30×40 plot • Halasru, Bengaluru
+                    G+3 • 30×40 plot
                   </div>
                 </div>
               </div>

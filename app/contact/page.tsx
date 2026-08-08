@@ -2,9 +2,9 @@ import { Suspense } from "react";
 import ContactForm from "@/components/sections/ContactForm";
 
 export const metadata = {
-  title: "Contact — Get a Free Quote",
+  title: "Contact — Get a Quote",
   description:
-    "Get in touch with Sri Ranganatha Associates for a free consultation on building plans, BBMP/BDA sanction, 3D elevations, structure details, and valuations in Bengaluru.",
+    "Get in touch with Sri Ranganatha Associates for a consultation on building plans, BBMP/BDA sanction, 3D elevations, structure details, and valuations in Bengaluru.",
 };
 
 export default function ContactPage() {

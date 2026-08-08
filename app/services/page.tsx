@@ -181,7 +181,7 @@ export default function ServicesPage() {
               href="/contact"
               className="inline-flex items-center justify-center gap-2 px-7 py-4 bg-amber-400 hover:bg-amber-500 text-navy-900 font-semibold rounded-lg transition-colors"
             >
-              Get a free consultation
+              Get a consultation
             </Link>
             <a
               href={BRAND.whatsappPrefilled}

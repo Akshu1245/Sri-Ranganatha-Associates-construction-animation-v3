@@ -52,11 +52,8 @@ export default function Navbar() {
               SRA
             </div>
             <div className="leading-tight">
-              <div className="font-display text-navy-600 text-base sm:text-lg font-semibold tracking-tight">
-                Sri Ranganatha
-              </div>
-              <div className="text-[10px] sm:text-xs text-ink-500 tracking-wider uppercase">
-                Associates
+              <div className="font-display text-navy-600 text-sm sm:text-lg font-semibold tracking-tight whitespace-nowrap">
+                Sri Ranganatha Associates
               </div>
             </div>
           </Link>

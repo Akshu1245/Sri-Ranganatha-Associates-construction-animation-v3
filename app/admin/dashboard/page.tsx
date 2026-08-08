@@ -469,7 +469,7 @@ function PortfolioEditModal({
                 onChange={(e) => setForm((f) => ({ ...f, category: e.target.value }))}
                 className="w-full px-3 py-2 border border-paper-300 rounded-lg focus:border-navy-600 outline-none bg-white"
               >
-                {["Residential", "Commercial", "Working Plan", "Brand"].map((c) => (
+                {["Residential", "Commercial", "Sanction Plan", "Working Plan", "Structure Details", "Brand"].map((c) => (
                   <option key={c} value={c}>{c}</option>
                 ))}
               </select>

@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { X, ChevronLeft, ChevronRight, MapPin, Calendar, Tag, Filter } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Calendar, Tag, Filter } from "lucide-react";
 import { getPortfolio, type PortfolioItem } from "@/lib/admin-store";
 
-const CATEGORIES = ["All", "Residential", "Commercial", "Working Plan", "Brand"];
+const CATEGORIES = ["All", "Residential", "Commercial", "Sanction Plan", "Working Plan", "Structure Details", "Brand"];
 
 export default function PortfolioPage() {
   const [portfolio, setPortfolio] = useState<PortfolioItem[]>([]);
@@ -118,10 +118,6 @@ export default function PortfolioPage() {
 
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-ink-500">
                     <span className="flex items-center gap-1">
-                      <MapPin className="w-3 h-3" />
-                      {item.location}
-                    </span>
-                    <span className="flex items-center gap-1">
                       <Calendar className="w-3 h-3" />
                       {item.year}
                     </span>
@@ -188,10 +184,6 @@ export default function PortfolioPage() {
                 {filtered[lightboxIdx].description}
               </p>
               <div className="space-y-1.5 text-sm text-paper-300">
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-amber-400" />
-                  {filtered[lightboxIdx].location}
-                </div>
                 <div className="flex items-center gap-2">
                   <Calendar className="w-4 h-4 text-amber-400" />
                   {filtered[lightboxIdx].year}

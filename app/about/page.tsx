@@ -5,12 +5,11 @@ import { Award, Building2, Calendar, MapPin, GraduationCap, Users } from "lucide
 import { BRAND } from "@/lib/constants";
 
 const MILESTONES = [
-  { year: "2006", title: "Founded in Halasru", desc: "Started as a one-person consultancy, BBMP sanctions and residential plans." },
-  { year: "2010", title: "BDA empanelment", desc: "Approved valuer for BDA layouts across Bengaluru." },
-  { year: "2014", title: "Commercial projects", desc: "Expanded into commercial blueprints — offices, restaurants, hotels." },
-  { year: "2018", title: "3D Elevation studio", desc: "In-house 3D rendering team to deliver photoreal elevations." },
-  { year: "2022", title: "500+ plans milestone", desc: "Crossed 500 plans sanctioned across BBMP/BDA/GBA/BMRDA." },
-  { year: "2026", title: "20 years of service", desc: "Two decades, 750+ families, one office in Halasru." },
+  { title: "Founded in Halasru", desc: "Started as a one-person consultancy, BBMP sanctions and residential plans." },
+  { title: "BDA empanelment", desc: "Approved valuer for BDA layouts across Bengaluru." },
+  { title: "Commercial projects", desc: "Expanded into commercial blueprints — offices, restaurants, hotels." },
+  { title: "3D Elevation studio", desc: "In-house 3D rendering team to deliver photoreal elevations." },
+  { title: "20 years of service", desc: "Two decades, 1000+ families, one office in Halasru." },
 ];
 
 export default function AboutPage() {
@@ -61,6 +60,10 @@ export default function AboutPage() {
                   <div className="text-xs text-paper-200">Est.</div>
                   <div className="font-display text-2xl font-bold">2006</div>
                 </div>
+                <div className="absolute -top-4 -left-4 bg-white rounded-xl shadow-xl px-5 py-3 border border-paper-300">
+                  <div className="text-xs text-ink-500">Founder</div>
+                  <div className="font-display text-lg font-bold text-navy-700 uppercase">M Ravikumar</div>
+                </div>
               </div>
             </motion.div>
 
@@ -79,20 +82,18 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-ink-700 text-lg leading-relaxed">
                 <p>
-                  In 2006, Ravi (the founder) registered Sri Ranganatha Associates as a one-man
-                  consultancy above a provision store in Halasru. The first client was a neighbour
-                  who wanted a 20×30 home plan. The 3-page working drawing that resulted is still
-                  pinned on our office wall.
+                  In 2006, M Ravikumar (the founder) registered Sri Ranganatha Associates as a
+                  one-man consultancy above a provision store in Halasru. The first client was a
+                  neighbour who wanted a 20×30 home plan. The 3-page working drawing that resulted
+                  is still pinned on our office wall.
                 </p>
                 <p>
                   Twenty years on, we&apos;re still in Halasru, still in the same Cauvery Complex.
                   We&apos;re now a team of engineers, draftsmen, 3D artists, and a sanctioned valuer.
-                  But every plan still passes through Ravi sir&apos;s desk before it goes to a
-                  client.
                 </p>
                 <p>
-                  Most of our new business comes from old clients. That&apos;s the only metric that
-                  matters to us.
+                  Most of our new businesses come from old clients. That&apos;s the only metric
+                  that matters to us.
                 </p>
               </div>
 
@@ -125,14 +126,13 @@ export default function AboutPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {[
-              { label: "BBMP", sub: "Approved" },
-              { label: "BDA", sub: "Approved" },
-              { label: "GBA", sub: "Approved" },
               { label: "BMRDA", sub: "Approved" },
-              { label: "Vastu", sub: "Certified" },
-              { label: "Banks", sub: "Empanelled" },
+              { label: "GBA", sub: "Approved" },
+              { label: "BDA", sub: "Approved" },
+              { label: "Village Panchayat", sub: "Approved" },
+              { label: "Valuers", sub: "Approved" },
             ].map((c) => (
               <div
                 key={c.label}
@@ -162,20 +162,17 @@ export default function AboutPage() {
           <div className="space-y-6">
             {MILESTONES.map((m, i) => (
               <motion.div
-                key={m.year}
+                key={m.title}
                 initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.4 }}
-                className="grid grid-cols-[100px_1fr] gap-6 items-start bg-white border border-paper-300 rounded-xl p-6 card-lift"
+                className="bg-white border border-paper-300 rounded-xl p-6 card-lift"
               >
-                <div className="font-display text-4xl font-bold text-amber-500">{m.year}</div>
-                <div>
-                  <h3 className="font-display text-xl font-semibold text-navy-700 mb-1">
-                    {m.title}
-                  </h3>
-                  <p className="text-ink-700">{m.desc}</p>
-                </div>
+                <h3 className="font-display text-xl font-semibold text-navy-700 mb-1">
+                  {m.title}
+                </h3>
+                <p className="text-ink-700">{m.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -218,7 +215,7 @@ export default function AboutPage() {
 
             <div className="rounded-2xl overflow-hidden border border-navy-700 shadow-2xl">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.7!2d77.638!3d12.978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sHalasuru%2C%20Bengaluru!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                src="https://www.google.com/maps?q=Cauvery+Complex%2C+129%2C+Old+Madras+Rd%2C+near+Ulsoor%2C+Halasuru%2C+Lingayana+Palya%2C+Bengaluru%2C+Karnataka+560008&output=embed"
                 width="100%"
                 height="320"
                 style={{ border: 0, filter: "grayscale(0.2) contrast(1.1)" }}

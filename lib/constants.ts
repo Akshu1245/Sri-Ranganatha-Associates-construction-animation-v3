@@ -270,6 +270,8 @@ export const TESTIMONIALS = [
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
+  { label: "Calculator", href: "/calculator" },
+  { label: "Sanction Guide", href: "/free-guide" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Process", href: "/process" },
   { label: "About", href: "/about" },

@@ -118,6 +118,8 @@ const jsonLd = {
   ],
 };
 
+import { getLocalBusinessSchema, getFAQSchema } from "@/lib/structured-data";
+
 export default function RootLayout({
   children,
 }: {
@@ -130,7 +132,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(getLocalBusinessSchema()) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(getFAQSchema()) }}
         />
       </head>
       <body className="bg-paper-100 text-ink-900 font-sans antialiased">

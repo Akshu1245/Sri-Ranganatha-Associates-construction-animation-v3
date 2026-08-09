@@ -26,14 +26,12 @@ export default function ServicesPage() {
               Our services
             </div>
             <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-navy-700 leading-[1.05]">
-              Everything you need,
+              Civil engineering &
               <br />
-              <span className="text-amber-500">under one roof.</span>
+              <span className="text-amber-500">building approval services.</span>
             </h1>
             <p className="mt-6 text-lg text-ink-700 max-w-2xl">
-              Whether you&apos;re building your first home, sanctioning a layout, or running a
-              restaurant — we have a dedicated team for it. {SERVICES.length} services, 1 phone
-              number.
+              Architectural CAD floor plans, AutoDCR sanction filing, structural reinforcement detailing, itemized bank estimations, and property valuation reports prepared in Halasru, Bengaluru.
             </p>
           </div>
         </div>

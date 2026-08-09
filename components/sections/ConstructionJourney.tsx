@@ -5,9 +5,9 @@ import { useEffect, useRef, useState } from "react";
 const FRAME_COUNT = 250;
 
 const chapters = [
-  { label: "01", title: "The plan begins", text: "Every strong project starts with a clear, considered plan." },
-  { label: "02", title: "Structure with purpose", text: "From foundations to form, every detail is engineered to work." },
-  { label: "03", title: "Designed for life", text: "Your vision takes shape as a building made for the way you live." },
+  { label: "01", title: "Architectural CAD Drafting", text: "Floor plan drawings with site measurements, setbacks, and room dimensions." },
+  { label: "02", title: "Structural Detailing", text: "Reinforcement schedules for footings, beams, columns, and slabs drawn to IS 456." },
+  { label: "03", title: "Sanction & Approval", text: "AutoDCR plan file preparation and submission to civic authorities." },
 ];
 
 export default function ConstructionJourney() {
@@ -56,8 +56,6 @@ export default function ConstructionJourney() {
     };
 
     loadFrame(0);
-    // Keep the first paint light. The complete sequence is requested only when
-    // the cinematic section approaches the viewport.
     for (let index = 1; index < 12; index += 1) loadFrame(index);
 
     const sectionObserver = new IntersectionObserver(([entry]) => {
@@ -92,15 +90,15 @@ export default function ConstructionJourney() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative bg-navy-900 text-white" style={{ height: "360vh" }} aria-label="From plan to completed building">
+    <section ref={sectionRef} className="relative bg-navy-900 text-white" style={{ height: "360vh" }} aria-label="Civil engineering workflow animation">
       <div className="sticky top-0 h-screen overflow-hidden">
         <canvas ref={canvasRef} className="absolute inset-0 h-full w-full object-cover" aria-hidden="true" />
         <div className="absolute inset-0 bg-gradient-to-r from-navy-950/90 via-navy-950/30 to-transparent" />
         <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-5 sm:px-8 lg:px-12">
           <div className="max-w-xl">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-amber-300">From plan to possession</p>
-            <h2 className="font-display text-4xl font-bold leading-tight sm:text-6xl">Every landmark begins as a line on paper.</h2>
-            <p className="mt-6 max-w-md text-base leading-relaxed text-paper-200 sm:text-lg">Watch a carefully planned vision become a complete, buildable home.</p>
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-amber-300">Civil Engineering Workflow</p>
+            <h2 className="font-display text-4xl font-bold leading-tight sm:text-6xl">From site measurement to sanctioned plan.</h2>
+            <p className="mt-6 max-w-md text-base leading-relaxed text-paper-200 sm:text-lg">Step-by-step drafting, structural detailing, and BBMP/BDA plan sanction process.</p>
             <div className="mt-10 space-y-5">
               {chapters.map((chapter, index) => (
                 <div key={chapter.label} className={`border-l-2 pl-4 transition-all duration-500 ${activeChapter === index ? "border-amber-300 opacity-100" : "border-white/20 opacity-45"}`}>
@@ -109,7 +107,7 @@ export default function ConstructionJourney() {
                 </div>
               ))}
             </div>
-            <div className="mt-10 flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-paper-300"><span className="h-px w-10 bg-amber-300" /> Scroll to build</div>
+            <div className="mt-10 flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-paper-300"><span className="h-px w-10 bg-amber-300" /> Scroll to explore process</div>
           </div>
         </div>
       </div>

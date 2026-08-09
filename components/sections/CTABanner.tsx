@@ -28,11 +28,10 @@ export default function CTABanner() {
 
           <div className="relative p-8 sm:p-12 lg:p-16 text-center text-white">
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-              Ready to start your project?
+              Planning to build in Bengaluru?
             </h2>
             <p className="mt-4 text-paper-200 text-lg max-w-2xl mx-auto">
-              Site consultation in Bengaluru. No obligation, no spam. Call, WhatsApp, or fill
-              the form — your call.
+              Visit our office in Halasru or send us your plot details. We review site measurements, BBMP/BDA bylaws, and structural requirements.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
@@ -56,13 +55,13 @@ export default function CTABanner() {
                 href="/contact"
                 className="inline-flex items-center justify-center gap-2 px-7 py-4 border border-paper-300/40 hover:border-amber-400 hover:text-amber-400 text-white font-semibold rounded-lg transition-colors"
               >
-                Fill Enquiry Form
+                Send Enquiry
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
 
             <p className="mt-6 text-xs text-paper-300/70">
-              Response within 2 working hours · Mon–Sat, 9 AM – 6 PM
+              Office open Mon–Sat, 9:00 AM – 6:00 PM · Opposite Halasru Metro Station
             </p>
           </div>
         </motion.div>

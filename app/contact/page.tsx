@@ -20,13 +20,12 @@ export default function ContactPage() {
             Contact us
           </div>
           <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-navy-700 leading-[1.05]">
-            Let&apos;s talk
+            Contact Sri Ranganatha
             <br />
-            <span className="text-amber-500">about your project.</span>
+            <span className="text-amber-500">Associates.</span>
           </h1>
           <p className="mt-6 text-lg text-ink-700 max-w-2xl">
-            One form. One phone call. One step closer to your home or commercial building.
-            We&apos;ll respond within 2 working hours.
+            Visit our office in Halasru, call us directly, or send your plot details and engineering requirements using the form below.
           </p>
         </div>
       </section>

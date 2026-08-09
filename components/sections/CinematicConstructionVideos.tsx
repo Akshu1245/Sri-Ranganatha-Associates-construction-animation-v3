@@ -3,11 +3,11 @@
 import { useEffect, useRef } from "react";
 
 const videos = [
-  { src: "/construction/videos/video-2.mp4", eyebrow: "02 / Structure", title: "See what makes the plan strong.", text: "A considered design is supported by structure, detail and engineering discipline." },
-  { src: "/construction/videos/video-3.mp4", eyebrow: "03 / Approval", title: "From drawing to direction.", text: "Clear planning helps your project move forward with confidence." },
-  { src: "/construction/videos/video-4.mp4", eyebrow: "04 / Design", title: "Form follows your vision.", text: "Materials, proportions and elevation details come together with purpose." },
-  { src: "/construction/videos/video-5.mp4", eyebrow: "05 / Site planning", title: "Every part of the site matters.", text: "A complete view of the building, access, landscape and space around it." },
-  { src: "/construction/videos/video-6.mp4", eyebrow: "06 / Reality", title: "Your idea, made real.", text: "From the first line to the finished building, we help you move forward." },
+  { src: "/construction/videos/video-2.mp4", eyebrow: "02 / Structural Reinforcement", title: "Reinforcement schedules built for safety.", text: "Beam, column, and foundation detailing drawn to IS 456 standards for site execution." },
+  { src: "/construction/videos/video-3.mp4", eyebrow: "03 / Civic Approvals", title: "Sanction drawings ready for AutoDCR.", text: "Complete drawing set preparation for BBMP, BDA, and BMRDA plan scrutiny and approval filing." },
+  { src: "/construction/videos/video-4.mp4", eyebrow: "04 / 3D Elevations", title: "Visualization before construction.", text: "Exterior finish rendering models to visualize materials, colors, and lighting." },
+  { src: "/construction/videos/video-5.mp4", eyebrow: "05 / Site Layout & Setbacks", title: "Plan orientation & site setbacks.", text: "Plot boundary verification, setback compliance, and road width planning." },
+  { src: "/construction/videos/video-6.mp4", eyebrow: "06 / Bank Valuations", title: "Itemized estimates & bank reports.", text: "Itemized quantity estimates and valuation reports for home loan approvals." },
 ];
 
 export default function CinematicConstructionVideos() {
@@ -27,11 +27,11 @@ export default function CinematicConstructionVideos() {
   }, []);
 
   return (
-    <section className="bg-paper-100" aria-label="Construction journey details">
+    <section className="bg-paper-100" aria-label="Project engineering details">
       <div className="bg-navy-900 px-5 py-16 text-center text-white sm:px-8 lg:px-12 lg:py-24">
-        <p className="text-xs font-semibold uppercase tracking-[0.28em] text-amber-300">The journey continues</p>
-        <h2 className="mx-auto mt-4 max-w-3xl font-display text-4xl font-bold leading-tight sm:text-6xl">Planned with clarity. Built with confidence.</h2>
-        <p className="mx-auto mt-5 max-w-2xl text-paper-200">A closer look at the decisions, structure and design thinking behind every project.</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.28em] text-amber-300">Engineering & Detailing</p>
+        <h2 className="mx-auto mt-4 max-w-3xl font-display text-4xl font-bold leading-tight sm:text-6xl">Precision in drawing, safety in structure.</h2>
+        <p className="mx-auto mt-5 max-w-2xl text-paper-200">Detailed technical drawings and site planning for residential and commercial building projects.</p>
       </div>
       {videos.map((video, index) => (
         <div key={video.src} className={`relative overflow-hidden ${index % 2 ? "bg-navy-900 text-white" : "bg-paper-100 text-ink-900"}`}>

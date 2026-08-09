@@ -53,12 +53,12 @@ export default function PortfolioPreview() {
             className="lg:col-span-5"
           >
             <div className="text-xs uppercase tracking-[0.2em] text-amber-400 font-semibold mb-3">
-              Selected work
+              Selected Drawings & Renders
             </div>
             <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              3D elevations
+              3D elevations &
               <br />
-              <span className="text-amber-400">that get sanctioned.</span>
+              <span className="text-amber-400">building drawings.</span>
             </h2>
           </motion.div>
           <motion.div
@@ -69,13 +69,12 @@ export default function PortfolioPreview() {
             className="lg:col-span-6 lg:col-start-7 self-end"
           >
             <p className="text-paper-200 text-lg leading-relaxed">
-              What your neighbours will see. What you&apos;ll live with. {PREVIEW_ITEMS.length}+
-              {" "}projects and counting — from 30×40 homes to 4-floor apartment blocks.
+              3D exterior elevation renderings and architectural plan sets prepared for residential houses, villas, apartments, and commercial sites in Bengaluru.
             </p>
           </motion.div>
         </div>
 
-        {/* Masonry-ish grid */}
+        {/* Masonry grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-5">
           {PREVIEW_ITEMS.map((item, i) => (
             <motion.button
@@ -103,10 +102,9 @@ export default function PortfolioPreview() {
                   {item.title}
                 </div>
                 <div className="hidden sm:flex items-center gap-1 text-xs text-paper-200 mt-1">
-                  {item.year}
+                  {item.year} · {item.location}
                 </div>
               </div>
-              {/* Hover ring */}
               <div className="absolute inset-0 ring-0 group-hover:ring-2 ring-amber-400 ring-inset rounded-xl transition-all" />
             </motion.button>
           ))}
@@ -117,7 +115,7 @@ export default function PortfolioPreview() {
             href="/portfolio"
             className="inline-flex items-center gap-2 px-7 py-3.5 bg-amber-400 hover:bg-amber-500 text-navy-900 font-semibold rounded-lg transition-colors"
           >
-            See all projects
+            View All Projects & Drawings
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -161,7 +159,7 @@ export default function PortfolioPreview() {
                 {PREVIEW_ITEMS[lightboxIdx].title}
               </div>
               <div className="text-paper-200 text-sm mt-1">
-                {PREVIEW_ITEMS[lightboxIdx].year}
+                {PREVIEW_ITEMS[lightboxIdx].year} · {PREVIEW_ITEMS[lightboxIdx].location}
               </div>
             </div>
           </div>

@@ -1,10 +1,9 @@
-import Hero from "@/components/sections/Hero";
+import ConstructionJourney from "@/components/sections/ConstructionJourney";
 import TrustMarquee from "@/components/sections/TrustMarquee";
 import CostCalculator from "@/components/sections/CostCalculator";
 import StatsBar from "@/components/sections/StatsBar";
 import FounderSection from "@/components/sections/FounderSection";
 import ServicesGrid from "@/components/sections/ServicesGrid";
-import ConstructionJourney from "@/components/sections/ConstructionJourney";
 import CinematicConstructionVideos from "@/components/sections/CinematicConstructionVideos";
 import PortfolioPreview from "@/components/sections/PortfolioPreview";
 import ComparisonTable from "@/components/sections/ComparisonTable";
@@ -15,13 +14,13 @@ import CTABanner from "@/components/sections/CTABanner";
 export default function Home() {
   return (
     <>
-      {/* 1. Showstopper Hero right at the top */}
-      <Hero />
+      {/* 1. Showstopper 250-Frame Interactive Construction Journey Hero at the ABSOLUTE FIRST PLACE */}
+      <ConstructionJourney />
 
-      {/* 2. Infinite Trust Marquee */}
+      {/* 2. Continuous Authority Trust Marquee */}
       <TrustMarquee />
 
-      {/* 3. Immediate Interactive Estimator right after hero */}
+      {/* 3. Interactive Plot Scope & Cost Calculator */}
       <CostCalculator />
 
       {/* 4. Numerical Proof Bar */}
@@ -33,25 +32,22 @@ export default function Home() {
       {/* 6. Comprehensive 12-Card Engineering Services Grid */}
       <ServicesGrid />
 
-      {/* 7. Interactive 250-Frame Construction Animation */}
-      <ConstructionJourney />
-
-      {/* 8. Engineering Video Showcase */}
+      {/* 7. Engineering Video Showcase */}
       <CinematicConstructionVideos />
 
-      {/* 9. Real Project Elevation & Drawing Samples */}
+      {/* 8. Real Project Elevation & Drawing Samples */}
       <PortfolioPreview />
 
-      {/* 10. Engineering Comparison Matrix */}
+      {/* 9. Engineering Comparison Matrix */}
       <ComparisonTable />
 
-      {/* 11. Free Downloadable Sanction Checklist PDF */}
+      {/* 10. Free Downloadable Sanction Checklist PDF */}
       <LeadMagnet />
 
-      {/* 12. Accordion FAQ Section for Local SEO */}
+      {/* 11. Accordion FAQ Section */}
       <FAQ />
 
-      {/* 13. High-Converting Bottom CTA Banner */}
+      {/* 12. Bottom Conversion CTA Banner */}
       <CTABanner />
     </>
   );

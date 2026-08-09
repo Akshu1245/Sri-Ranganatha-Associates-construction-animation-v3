@@ -18,6 +18,16 @@ export default function ConstructionJourney() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imagesRef = useRef<HTMLImageElement[]>([]);
   const [activeStep, setActiveStep] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -42,7 +52,7 @@ export default function ConstructionJourney() {
       const width = image.naturalWidth * ratio;
       const height = image.naturalHeight * ratio;
 
-      // Perfectly frame the top of the building so roof is NEVER cut off by navbar:
+      // Perfectly frame top of 3D building so roof is never cut off
       const y = height > canvas.height ? (canvas.height - height) * 0.12 : (canvas.height - height) / 2;
       const x = (canvas.width - width) / 2;
 
@@ -54,14 +64,16 @@ export default function ConstructionJourney() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = Math.floor(canvas.clientWidth * dpr);
       canvas.height = Math.floor(canvas.clientHeight * dpr);
-      const progress = Math.max(
-        0,
-        Math.min(
-          1,
-          (window.scrollY - section.offsetTop) /
-            Math.max(1, section.offsetHeight - window.innerHeight)
-        )
-      );
+      const progress = isMobile
+        ? 0.5
+        : Math.max(
+            0,
+            Math.min(
+              1,
+              (window.scrollY - section.offsetTop) /
+                Math.max(1, section.offsetHeight - window.innerHeight)
+            )
+          );
       draw(Math.round(progress * (FRAME_COUNT - 1)));
     };
 
@@ -89,7 +101,7 @@ export default function ConstructionJourney() {
 
     let ticking = false;
     const onScroll = () => {
-      if (ticking) return;
+      if (ticking || isMobile) return;
       ticking = true;
       requestAnimationFrame(() => {
         const progress = Math.max(
@@ -116,29 +128,33 @@ export default function ConstructionJourney() {
       window.removeEventListener("scroll", onScroll);
       sectionObserver.disconnect();
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <section
       ref={sectionRef}
       className="relative bg-navy-950 text-white"
-      style={{ height: "240vh" }}
-      aria-label="Civil engineering construction animation"
+      style={{ height: isMobile ? "auto" : "240vh" }}
+      aria-label="Civil engineering construction hero"
     >
-      <div className="sticky top-0 h-screen w-full overflow-hidden pt-20 lg:pt-24">
-        {/* Full 100% crisp video canvas with roof top offset framing */}
+      <div
+        className={`${
+          isMobile ? "relative min-h-[85vh] py-16" : "sticky top-0 h-screen"
+        } w-full overflow-hidden pt-20 lg:pt-24`}
+      >
+        {/* Crisp video canvas background */}
         <canvas
           ref={canvasRef}
           className="absolute inset-0 h-full w-full object-cover opacity-100"
           aria-hidden="true"
         />
 
-        {/* Minimal soft vignette on the left text area only */}
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-950/85 via-navy-950/35 to-transparent pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-navy-950/30 pointer-events-none" />
+        {/* Minimal soft vignette on text area */}
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-950/90 via-navy-950/40 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-transparent to-navy-950/40 pointer-events-none" />
 
         {/* Sleek minimal content overlay */}
-        <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-6 sm:px-8 lg:px-12">
+        <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-5 sm:px-8 lg:px-12">
           <div className="max-w-xl">
             {/* Minimal top pill */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/40 text-[11px] font-bold uppercase tracking-wider mb-4 shadow-sm backdrop-blur-md">
@@ -151,13 +167,13 @@ export default function ConstructionJourney() {
               From site measurement to <span className="text-amber-400">sanctioned plan.</span>
             </h1>
 
-            {/* Minimal one-line tagline */}
-            <p className="mt-3.5 text-base sm:text-lg text-paper-200 font-medium">
+            {/* Minimal tagline */}
+            <p className="mt-3 text-base sm:text-lg text-paper-200 font-medium">
               Registered Civil Engineers & Approved Valuers. Architectural CAD · BBMP/BDA Sanction · IS 456 Details.
             </p>
 
             {/* Dual CTAs */}
-            <div className="mt-6 flex items-center gap-3">
+            <div className="mt-6 flex flex-wrap items-center gap-3">
               <Link
                 href="/contact"
                 className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-amber-400 hover:bg-amber-500 text-navy-950 font-bold text-sm rounded-xl shadow-blueprint transition-all"
@@ -173,17 +189,17 @@ export default function ConstructionJourney() {
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-success-500 hover:bg-success-600 text-white font-bold text-sm rounded-xl shadow-sm transition-all"
               >
                 <MessageCircle className="w-4 h-4" />
-                WhatsApp
+                WhatsApp Office
               </a>
             </div>
 
             {/* Minimal progress steps indicator */}
-            <div className="mt-8 flex items-center gap-4 text-xs">
+            <div className="mt-8 flex flex-wrap items-center gap-4 text-xs">
               {steps.map((step, idx) => (
                 <div
                   key={step.label}
                   className={`flex items-center gap-1.5 transition-all ${
-                    activeStep === idx ? "text-amber-400 font-bold opacity-100" : "text-paper-300 opacity-50"
+                    activeStep === idx ? "text-amber-400 font-bold opacity-100" : "text-paper-300 opacity-60"
                   }`}
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
@@ -196,10 +212,12 @@ export default function ConstructionJourney() {
           </div>
         </div>
 
-        {/* Minimal bottom scroll cue */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center text-[10px] uppercase tracking-[0.25em] text-paper-300 opacity-70 pointer-events-none">
-          <span>Scroll to play 3D construction</span>
-        </div>
+        {/* Desktop scroll cue */}
+        {!isMobile && (
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center text-[10px] uppercase tracking-[0.25em] text-paper-300 opacity-70 pointer-events-none">
+            <span>Scroll to play 3D construction</span>
+          </div>
+        )}
       </div>
     </section>
   );

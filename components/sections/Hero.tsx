@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { ArrowRight, CheckCircle2, Phone } from "lucide-react";
+import { ArrowRight, CheckCircle2, Phone, MessageCircle, Calculator, ShieldCheck } from "lucide-react";
 import { BRAND } from "@/lib/constants";
 
 function TiltCard({ children }: { children: React.ReactNode }) {
@@ -49,18 +49,26 @@ function TiltCard({ children }: { children: React.ReactNode }) {
   );
 }
 
-function MagneticButton({ children, className, href, external }: {
-  children: React.ReactNode; className: string; href: string; external?: boolean;
+function MagneticButton({
+  children,
+  className,
+  href,
+  external,
+}: {
+  children: React.ReactNode;
+  className: string;
+  href: string;
+  external?: boolean;
 }) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const sx = useSpring(x, { stiffness: 300, damping: 20 });
   const sy = useSpring(y, { stiffness: 300, damping: 20 });
 
-  const onMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const onMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    x.set((e.clientX - rect.left - rect.width / 2) * 0.25);
-    y.set((e.clientY - rect.top - rect.height / 2) * 0.25);
+    x.set((e.clientX - rect.left - rect.width / 2) * 0.2);
+    y.set((e.clientY - rect.top - rect.height / 2) * 0.2);
   };
   const onMouseLeave = () => {
     x.set(0);
@@ -98,14 +106,14 @@ function MagneticButton({ children, className, href, external }: {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen pt-20 lg:pt-24 flex items-center overflow-hidden bg-paper-100">
+    <section className="relative min-h-screen pt-24 lg:pt-28 flex items-center overflow-hidden bg-paper-100">
       {/* Background layers */}
-      <div className="absolute inset-0 bg-blueprint opacity-60" aria-hidden="true" />
-      <div className="absolute inset-0 bg-blueprint-radial" aria-hidden="true" />
+      <div className="absolute inset-0 bg-blueprint opacity-60 pointer-events-none" aria-hidden="true" />
+      <div className="absolute inset-0 bg-blueprint-radial pointer-events-none" aria-hidden="true" />
 
       {/* Blueprint grid lines */}
       <svg
-        className="absolute inset-0 w-full h-full opacity-30"
+        className="absolute inset-0 w-full h-full opacity-30 pointer-events-none"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none"
         viewBox="0 0 1200 800"
@@ -161,26 +169,27 @@ export default function Hero() {
         />
       </svg>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20 w-full">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 w-full">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
-          {/* Left content */}
+          {/* Left content column */}
           <div className="lg:col-span-7">
-            {/* Top pill */}
+            {/* Top pill badge */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-navy-50 border border-navy-200 text-navy-800 text-xs font-semibold mb-6"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-navy-50 border border-navy-200 text-navy-800 text-xs font-semibold mb-6 shadow-sm"
             >
-              <span>Halasru, Bengaluru · Est. 2006 · 500+ Sanctioned Plans</span>
+              <ShieldCheck className="w-4 h-4 text-amber-500" />
+              <span>Halasru, Bengaluru · Est. 2006 · 500+ Sanctioned Building Plans</span>
             </motion.div>
 
-            {/* Headline */}
+            {/* Main Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-navy-700 leading-[1.1] tracking-tight"
+              className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-navy-700 leading-[1.08] tracking-tight"
             >
               Building Plans,
               <br />
@@ -195,10 +204,10 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.25 }}
               className="mt-6 text-lg text-ink-700 max-w-2xl leading-relaxed"
             >
-              Registered civil engineers and approved valuers based in Cauvery Complex, Halasru. We prepare architectural CAD drawings, file BBMP online plan sanctions, draw IS 456 structural reinforcement schedules, and issue property valuation reports.
+              Registered civil engineers and approved valuers based in Cauvery Complex, Halasru. We draft architectural CAD drawings, file BBMP AutoDCR plan sanctions, prepare IS 456 structural schedules, and issue property valuation reports.
             </motion.p>
 
-            {/* Trust pills */}
+            {/* Trust checkmarks */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -218,33 +227,37 @@ export default function Hero() {
               ))}
             </motion.div>
 
-            {/* CTA */}
+            {/* High-converting CTA buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.55 }}
-              className="mt-10 flex flex-col sm:flex-row gap-3"
+              className="mt-9 flex flex-col sm:flex-row gap-3.5"
             >
               <MagneticButton
                 href="/contact"
-                className="group inline-flex items-center justify-center gap-2 px-7 py-4 bg-navy-600 hover:bg-navy-700 text-white font-semibold rounded-lg shadow-blueprint hover:shadow-amber-glow transition-colors"
+                className="group inline-flex items-center justify-center gap-2 px-7 py-4 bg-navy-600 hover:bg-navy-700 text-white font-bold rounded-xl shadow-blueprint hover:shadow-amber-glow transition-all"
               >
                 Request Plan Review
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </MagneticButton>
+
               <MagneticButton
-                href="/portfolio"
-                className="inline-flex items-center justify-center gap-2 px-7 py-4 border-2 border-navy-600 text-navy-600 hover:bg-navy-600 hover:text-white font-semibold rounded-lg transition-colors"
+                href="/calculator"
+                className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-amber-400 hover:bg-amber-500 text-navy-950 font-bold rounded-xl shadow-blueprint transition-colors"
               >
-                View Project Drawings
+                <Calculator className="w-4 h-4 text-navy-950" />
+                Estimate Scope (30s)
               </MagneticButton>
-              <a
-                href={`tel:${BRAND.phone}`}
-                className="sm:hidden inline-flex items-center justify-center gap-2 px-7 py-4 border border-paper-300 text-ink-700 hover:bg-paper-200 font-semibold rounded-lg"
+
+              <MagneticButton
+                href={BRAND.whatsappPrefilled}
+                external
+                className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-success-500 hover:bg-success-600 text-white font-bold rounded-xl shadow-sm transition-colors"
               >
-                <Phone className="w-4 h-4" />
-                Call Office
-              </a>
+                <MessageCircle className="w-4 h-4" />
+                WhatsApp Office
+              </MagneticButton>
             </motion.div>
 
             {/* Proof bar */}
@@ -264,8 +277,8 @@ export default function Hero() {
                 ))}
               </div>
               <div>
-                <div className="flex items-center gap-1 text-amber-500 font-semibold">
-                  ★★★★★
+                <div className="flex items-center gap-1 text-amber-500 font-bold">
+                  ★★★★★ <span className="text-navy-700 text-xs font-semibold ml-1">4.9 / 5 Rating</span>
                 </div>
                 <div className="text-ink-600 text-xs sm:text-sm">
                   1000+ building plans & valuations completed across Bengaluru
@@ -274,7 +287,7 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right visual */}
+          {/* Right interactive visual column */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -294,8 +307,8 @@ export default function Hero() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-navy-900/0 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                    <div className="text-xs uppercase tracking-wider text-amber-300 mb-1">
-                      Sample Project
+                    <div className="text-xs uppercase tracking-wider text-amber-300 mb-1 font-semibold">
+                      Featured Deliverable
                     </div>
                     <div className="font-display text-2xl font-semibold">
                       G+3 Residential Elevation
@@ -349,13 +362,13 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center text-ink-500 text-xs"
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center text-ink-500 text-xs pointer-events-none"
       >
-        <span>SCROLL</span>
+        <span>SCROLL TO EXPLORE</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.6 }}
-          className="mt-2 w-px h-8 bg-ink-500/40"
+          className="mt-1.5 w-px h-7 bg-ink-500/40"
         />
       </motion.div>
     </section>

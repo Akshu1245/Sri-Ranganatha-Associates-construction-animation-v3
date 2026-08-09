@@ -1,4 +1,5 @@
 import Hero from "@/components/sections/Hero";
+import TrustMarquee from "@/components/sections/TrustMarquee";
 import StatsBar from "@/components/sections/StatsBar";
 import ServicesGrid from "@/components/sections/ServicesGrid";
 import PortfolioPreview from "@/components/sections/PortfolioPreview";
@@ -12,6 +13,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <TrustMarquee />
       <ConstructionJourney />
       <CinematicConstructionVideos />
       <StatsBar />

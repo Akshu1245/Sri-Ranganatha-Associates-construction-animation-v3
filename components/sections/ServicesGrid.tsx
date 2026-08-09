@@ -78,7 +78,7 @@ export default function ServicesGrid() {
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <div
-                      className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-105 ${
+                      className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:-rotate-6 ${
                         isAmber
                           ? "bg-amber-50 text-amber-600 group-hover:bg-amber-400 group-hover:text-navy-950"
                           : "bg-navy-50 text-navy-600 group-hover:bg-navy-600 group-hover:text-white"

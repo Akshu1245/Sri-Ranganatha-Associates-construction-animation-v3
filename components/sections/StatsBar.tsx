@@ -65,10 +65,10 @@ export default function StatsBar() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="text-center lg:text-left lg:border-l lg:border-navy-500 lg:pl-8 first:border-l-0 first:pl-0"
+                className="group text-center lg:text-left rounded-2xl border border-transparent hover:border-navy-400/50 hover:bg-navy-500/30 transition-all duration-300 p-4 -m-4"
               >
                 <div className="flex items-center justify-center lg:justify-start gap-3 mb-2">
-                  <Icon className="w-6 h-6 text-amber-400" />
+                  <Icon className="w-6 h-6 text-amber-400 transition-transform duration-300 group-hover:scale-110" />
                   <div className="font-display text-4xl lg:text-5xl font-bold text-white">
                     <Counter to={stat.value} suffix={stat.suffix} />
                   </div>

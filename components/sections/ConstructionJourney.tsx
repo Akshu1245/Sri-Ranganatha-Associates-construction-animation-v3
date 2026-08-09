@@ -34,20 +34,20 @@ export default function ConstructionJourney() {
       const image = imagesRef.current[index] || imagesRef.current[lastDrawn];
       if (!image?.complete || !image.naturalWidth) return;
       lastDrawn = index;
+
       const ratio = Math.max(
         canvas.width / image.naturalWidth,
         canvas.height / image.naturalHeight
       );
       const width = image.naturalWidth * ratio;
       const height = image.naturalHeight * ratio;
+
+      // Perfectly frame the top of the building so roof is NEVER cut off by navbar:
+      const y = height > canvas.height ? (canvas.height - height) * 0.12 : (canvas.height - height) / 2;
+      const x = (canvas.width - width) / 2;
+
       context.clearRect(0, 0, canvas.width, canvas.height);
-      context.drawImage(
-        image,
-        (canvas.width - width) / 2,
-        (canvas.height - height) / 2,
-        width,
-        height
-      );
+      context.drawImage(image, x, y, width, height);
     };
 
     const resize = () => {
@@ -125,8 +125,8 @@ export default function ConstructionJourney() {
       style={{ height: "240vh" }}
       aria-label="Civil engineering construction animation"
     >
-      <div className="sticky top-0 h-screen w-full overflow-hidden">
-        {/* Full 100% crisp video canvas */}
+      <div className="sticky top-0 h-screen w-full overflow-hidden pt-20 lg:pt-24">
+        {/* Full 100% crisp video canvas with roof top offset framing */}
         <canvas
           ref={canvasRef}
           className="absolute inset-0 h-full w-full object-cover opacity-100"

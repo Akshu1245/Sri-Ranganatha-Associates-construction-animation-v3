@@ -36,11 +36,15 @@ export default function Navbar() {
     };
   }, [open]);
 
+  const isHome = pathname === "/";
+
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-paper-100/85 backdrop-blur-md border-b border-paper-300 shadow-sm"
+          ? isHome
+            ? "bg-navy-950/80 backdrop-blur-md border-b border-navy-800/80 text-white shadow-lg"
+            : "bg-paper-100/90 backdrop-blur-md border-b border-paper-300 shadow-sm"
           : "bg-transparent"
       }`}
     >
@@ -52,7 +56,11 @@ export default function Navbar() {
               SRA
             </div>
             <div className="leading-tight">
-              <div className="font-display text-navy-600 text-sm sm:text-lg font-semibold tracking-tight whitespace-nowrap">
+              <div
+                className={`font-display text-sm sm:text-lg font-semibold tracking-tight whitespace-nowrap ${
+                  isHome && scrolled ? "text-white" : "text-navy-600"
+                }`}
+              >
                 Sri Ranganatha Associates
               </div>
             </div>
